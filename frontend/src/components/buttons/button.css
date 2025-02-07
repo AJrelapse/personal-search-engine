@@ -42,3 +42,6 @@
     opacity: 1;
   }
   
+  .button.active {
+    background: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+  }

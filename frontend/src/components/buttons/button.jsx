@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react';
 import './button.css';
 
-function Button(props) {
+function Button({ text, isActive }) {
     return (
-        <>
-            <button class="button">
-            <span>{props.text}</span>
-            </button>
-        </>
+        <button className={`button ${isActive ? 'active' : ''}`}>
+            <span>{text}</span>
+        </button>
     );
-    }
+}
+
 export default Button;

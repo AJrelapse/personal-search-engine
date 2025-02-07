@@ -6,6 +6,7 @@ import Home from './pages/Home/home';
 import Footer from './components/Footer/footer';
 import Header from './components/Header/header';
 import SearchPage from './pages/Search/searchPage';
+import ImagesPage from './pages/image-pg/imagePage';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
 					}
 				/>
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/images" element={<ImagesPage />} />
 			</Routes>
 		</Router>
 	);

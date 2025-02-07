@@ -1,28 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './navbar.css';
 import Button from '../buttons/button';
 import SearchBar from '../searchbar/searchbar';
 
 const Navbar = () => {
+    const location = useLocation();
 
+    const buttons = [
+        { text: 'All', path: '/search' },
+        { text: 'Images', path: '/images' },
+        { text: 'Videos', path: '/videos' },
+        { text: 'News', path: '/news' },
+    ];
 
-
-	return (
-		<div>
-			<div className="navbar">
+    return (
+        <div>
+            <div className="navbar">
                 <div className="search-container">
                     <h1>Surf With AJ</h1>
-                <SearchBar />
+                    <SearchBar />
                 </div>
-                    <div className='button-container'>   
-                    <a href="/search" className="active"><Button text={"All"}/></a>
-                    <a href="/images" className="active"><Button text={"Images"}/></a>
-                    <a href="/videos" className="active"><Button text={"Videos"}/></a>
-                    <a href="/news" className="active"><Button text={"News"}/></a>
-                    </div>
+                <div className='button-container'>
+                    {buttons.map((button) => (
+                        <Link to={button.path} key={button.text}>
+                            <Button text={button.text} isActive={location.pathname === button.path} />
+                        </Link>
+                    ))}
+                </div>
             </div>
-		</div>
-	);
+        </div>
+    );
 };
 
 export default Navbar;
