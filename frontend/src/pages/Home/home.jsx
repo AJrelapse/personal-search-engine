@@ -1,8 +1,16 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 import './home.css';
 import SearchBar from '../../components/searchbar/searchbar';
 
 function Home() {
+
+    const navigate= useNavigate();
+
+    const handleClick = () => {
+        navigate('/search');
+    }
+
   return (
     <>
       <div className='Home'>
@@ -12,7 +20,7 @@ function Home() {
         </div>
         <SearchBar />
         <div className="submit">
-            <button>Search</button>
+            <button onClick={handleClick}>Search</button>
         </div>
 
         <div className="content">
