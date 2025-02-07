@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './navbar.css';
 import Button from '../buttons/button';
-import SearchBar from '../../../components/searchbar/searchbar';
+import SearchBar from '../searchbar/searchbar';
 
 const Navbar = () => {
 

@@ -1,6 +1,6 @@
 import React from "react";
 import './footer.css';
-import Icons from './icons';
+import Icons from '../icons/icons';
 
 function Footer() {
     return (
