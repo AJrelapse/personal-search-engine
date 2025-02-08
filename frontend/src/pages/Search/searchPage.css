@@ -48,11 +48,15 @@
   .card-image {
     height: 150px;
     width:150px;
-    background-color: #c9c9c9;
-    border-radius: 15px;
-    box-shadow: inset 8px 8px 10px #c3c3c3,
-              inset -8px -8px 10px #cfcfcf;
+    border-radius: 20px;
     float: right;
+  }
+
+  .card-image img{
+    height: 150px;
+    max-width:100%;
+    object-fit: cover;
+    border-radius: 15px;
   }
   
   .card-body {

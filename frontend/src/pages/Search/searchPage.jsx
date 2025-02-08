@@ -24,7 +24,7 @@ function SearchPage() {
                 </p>
                 </div>
                 </div>
-                <a href=""><div class="card-image"><img src=""/></div></a>
+                <a href=""><div class="card-image"><img src="/gla2.jpg"/></div></a>
                 </div>
             </div>
 

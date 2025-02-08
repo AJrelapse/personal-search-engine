@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import './navbar.css';
 import Button from '../buttons/button';
 import SearchBar from '../searchbar/searchbar';
+import { useNavigate } from 'react-router-dom';
+
 
 const Navbar = () => {
     const location = useLocation();
@@ -14,11 +16,17 @@ const Navbar = () => {
         { text: 'News', path: '/news' },
     ];
 
+    const navigate= useNavigate();
+
+    const handleClick = () => {
+        navigate('/');
+    }
+
     return (
         <div>
             <div className="navbar">
                 <div className="search-container">
-                    <h1>Surf With AJ</h1>
+                    <a onClick={handleClick}>Surf With AJ</a>
                     <SearchBar />
                 </div>
                 <div className='button-container'>
