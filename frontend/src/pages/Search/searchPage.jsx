@@ -16,7 +16,7 @@ function SearchPage() {
             <div className="search-cards">
                 <div class="card1">
                     <div>
-                <a href=""><p class="card-title">Automobili Lamborghini</p>
+                <a href="https://www.lamborghini.com"><p class="card-title">Automobili Lamborghini</p>
                 <p class="url">www.lamborghini.com</p></a>
                 <div class="card-body">
                 <p>

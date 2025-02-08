@@ -1,0 +1,112 @@
+.card4 {
+    margin: 10px;
+    width: 100%; /* Make the card take full width of the grid cell */
+    border-radius: 20px;
+    transition: 0.4s;
+    border: solid 2px #332e3d;
+    background-color: #21143a;
+}
+
+.card4:hover {
+    translate: 0 -7px;
+}
+
+.card4-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 5px 0 0 10px;
+}
+
+.card4-image {
+    height: 12vw; /* Set a constant height for the image container */
+    background-color: #c9c9c9;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card4-image img {
+    height: 100%; /* Set the image height to 100% of the container */
+    max-width: 100%; /* Set the image width to auto to maintain aspect ratio */
+    object-fit: cover;
+}
+
+.footer3 {
+    margin: 0 0 0 10px;
+    font-size: 13px;
+    color: #c7c6c6;
+    padding:5px;
+}
+
+
+.videos-page-cont {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Default to 5 cards per row */
+    gap: 10px; /* Space between grid items */
+    padding: 8px;
+    border-radius: 14px;
+    box-shadow: none;
+}
+
+.url-img {
+    height: 16px;
+    width: 16px;
+    border-radius: 4px;
+    margin: 1px 8px 1px 0px;
+    object-fit: cover;
+}
+
+/* Media query for screen sizes below 1409px */
+@media (max-width: 1408px) {
+    .image-page-cont {
+        grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+    }
+}
+
+/* Media query for screen sizes between 290px and 1408px */
+@media (max-width: 1408px) and (min-width: 290px) {
+    .image-page-cont {
+        grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 cards per row with flexible width */
+    }
+}
+
+/* Media query for screen sizes below 290px */
+@media (max-width: 289px) {
+    .image-page-cont {
+        grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+        overflow-x: auto; /* Allow horizontal scrolling */
+    }
+}
+
+@media (max-width: 1024px) {
+    .card4-title {
+        font-size: 1.5vw;
+    }
+
+    .footer3 {
+        font-size: 1.1vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .card4-title {
+        font-size: 1.8vw;
+    }
+
+    .footer3 {
+        font-size: 1.3vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .card4-title {
+        font-size: 2.5vw; /* Larger text for small screens */
+    }
+
+    .footer3 {
+        font-size: 2.5vw;
+    }
+}
