@@ -1,13 +1,18 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 from elasticsearch import Elasticsearch
-from config import ELASTICSEARCH_URL, INDEX_NAME
 
 app = Flask(__name__)
-es = Elasticsearch([ELASTICSEARCH_URL])
+CORS(app)  # Enable CORS
 
-@app.route("/search", methods=["GET"])
+es = Elasticsearch("http://localhost:9200")
+
+@app.route('/search', methods=['GET'])
 def search():
-    query = request.args.get("q", "")
+    query = request.args.get("q")
+    if not query:
+        return jsonify([])
+
     search_query = {
         "query": {
             "multi_match": {
@@ -17,24 +22,13 @@ def search():
         }
     }
 
-    results = es.search(index=INDEX_NAME, body=search_query)
-    
-    clean_results = [
-        {
-            "title": hit["_source"]["title"],
-            "url": hit["_source"]["url"],
-            "text": " ".join(hit["_source"]["text"].split())[:300] + "..."  # Trim text & remove newlines
-        }
-        for hit in results["hits"]["hits"]
-    ]
+    result = es.search(index="searchengine", body=search_query)
+    hits = result["hits"]["hits"]
 
-    if not clean_results:
-        return jsonify({"message": "No results found"}), 404
+    # Extract relevant fields from search results
+    search_results = [{"title": hit["_source"]["title"], "text": hit["_source"]["text"], "url": hit["_source"]["url"]} for hit in hits]
 
-    return jsonify(clean_results)
+    return jsonify(search_results)
 
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+if __name__ == '__main__':
+    app.run(debug=True)
