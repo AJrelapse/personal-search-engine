@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import './searchbar.css';
 
-function SearchBar() {
-    const [query, setQuery] = useState("");
+function SearchBar({ query, setQuery }) {
     const navigate = useNavigate();
 
     const handleKeyPress = (event) => {
